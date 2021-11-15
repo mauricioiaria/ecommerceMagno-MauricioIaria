@@ -3,13 +3,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #24252a;
 }
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 30px 10%;
+  padding: 20px 5%;
+  background-color: #24252a;
 }
 
 .logo {
