@@ -1,11 +1,12 @@
 import React from 'react'
 import '../ItemListContainer/ItemListContainer.css';
+import ItemCount from '../ItemCount/ItemCount';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
     return (
         <div className="itemContainer">
-            <p> {props.greeting} </p>
+            <ItemCount />
         </div>
     );
 };

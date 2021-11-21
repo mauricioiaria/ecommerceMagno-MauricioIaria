@@ -1,0 +1,14 @@
+.CounterSection {
+  border-style: double;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.CounterSection p {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.CounterSection button {
+  margin: 10px;
+}
