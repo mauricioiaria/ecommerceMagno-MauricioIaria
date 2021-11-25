@@ -3,30 +3,39 @@ import "../ItemCount/ItemCount.css";
 import swal from 'sweetalert';
 
 
-const ItemCount = () => {
+const ItemCount = ({ stock, initial }) => {
 
-    const [stock, setStock] = useState(0);
 
-    const handlerCounterUp = () => {
-        if (stock < 10) {
-            setStock(stock + 1);
+    const [count, setCount] = useState(initial);
+
+    const sumaItem = () => {
+        if (count < stock) {
+            setCount(count + 1)
         } else {
-            swal("Stock Insuficiente")
+            alert('Superaste el stock')
+        };
+    }
+
+
+    const restaItem = () => {
+        if (count > initial) {
+            setCount(count - 1)
         }
     };
 
-    const handlerCounterDown = () => {
-        if (stock > 0) {
-            setStock(stock - 1);
-        }
+    const onAdd = () => {
+        alert(`Agregaste ${count}`)
     };
+
 
     return (
         <div className='CounterSection'>
-            <p>CONTADOR : {stock}</p>
+            <p>CONTADOR : {count} </p>
             <div className='btn-section'>
-                <button onClick={handlerCounterUp}>Incrementar</button>
-                <button onClick={handlerCounterDown}>Disminuir</button>
+                <button onClick={sumaItem}>Incrementar</button>
+                <button onClick={restaItem}>Disminuir</button>
+                <button onClick={onAdd}>Agregar</button>
+
             </div>
 
         </div>

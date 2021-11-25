@@ -6,7 +6,7 @@ const ItemListContainer = () => {
 
     return (
         <div className="itemContainer">
-            <ItemCount />
+            <ItemCount stock={5} initial={1} />
         </div>
     );
 };
