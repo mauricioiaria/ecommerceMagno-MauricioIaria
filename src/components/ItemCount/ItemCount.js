@@ -12,7 +12,7 @@ const ItemCount = ({ stock, initial }) => {
         if (count < stock) {
             setCount(count + 1)
         } else {
-            alert('Superaste el stock')
+            swal('SUPERASTE EL STOCK DISPONIBLE')
         };
     }
 
@@ -24,7 +24,7 @@ const ItemCount = ({ stock, initial }) => {
     };
 
     const onAdd = () => {
-        alert(`Agregaste ${count}`)
+        swal(`AGREGASTE ${count}`)
     };
 
 
