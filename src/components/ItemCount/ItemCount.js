@@ -32,8 +32,8 @@ const ItemCount = ({ stock, initial }) => {
         <div className='CounterSection'>
             <p>CONTADOR : {count} </p>
             <div className='btn-section'>
-                <button onClick={sumaItem}>Incrementar</button>
-                <button onClick={restaItem}>Disminuir</button>
+                <button onClick={sumaItem}>+</button>
+                <button onClick={restaItem}>-</button>
                 <button onClick={onAdd}>Agregar</button>
 
             </div>
