@@ -8,9 +8,12 @@ const ItemList = () => {
     console.log(users);
 
     useEffect(() => {
-        fetch('https://www.breakingbadapi.com/api/characters')
-            .then((response) => response.json())
-            .then((json) => setUsers(json));
+        setTimeout(() => {
+            fetch('https://www.breakingbadapi.com/api/characters')
+                .then((response) => response.json())
+                .then((json) => setUsers(json));
+        }, 2000);
+
     }, []);
 
     return (
