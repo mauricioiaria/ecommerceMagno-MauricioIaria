@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../ItemCount/ItemCount.css";
 import swal from 'sweetalert';
+import { Button, Icon } from 'semantic-ui-react'
 
 
 const ItemCount = ({ stock, initial }) => {
@@ -20,6 +21,7 @@ const ItemCount = ({ stock, initial }) => {
     const restaItem = () => {
         if (count > initial) {
             setCount(count - 1)
+            swal(`PRODUCTO ELIMINADO`)
         }
     };
 
@@ -30,14 +32,20 @@ const ItemCount = ({ stock, initial }) => {
 
     return (
         <div className='CounterSection'>
-            <p>CONTADOR : {count} </p>
-            <div className='btn-section'>
-                <button onClick={sumaItem}>+</button>
-                <button onClick={restaItem}>-</button>
-                <button onClick={onAdd}>Agregar</button>
-
+            <div className='ui three buttons'>
+                <Button negative onClick={restaItem}>-</Button>
+                <div className='ui basic  button'>{count}</div>
+                <Button positive onClick={sumaItem}>+</Button>
             </div>
-
+            <div className='separacion'>
+                {
+                    count > 0 ?
+                        <Button className='centrado' active onClick={() => onAdd(count)}>Agregar al Carrito</Button>
+                        :
+                        <Button className='centrado' attached >Ingrese Cantidad</Button>
+                }
+                {/* <Button className='centrado' active onClick={onAdd}>Agregar al Carrito</Button> */}
+            </div>
         </div>
     );
 

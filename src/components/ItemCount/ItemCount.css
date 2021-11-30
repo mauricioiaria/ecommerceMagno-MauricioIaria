@@ -1,13 +1,11 @@
 .CounterSection {
   margin-top: 20px;
-  padding: 20px;
 }
 
-.CounterSection p {
-  text-align: center;
-  text-transform: uppercase;
+.separacion {
+  margin-top: 10px;
 }
 
-.CounterSection button {
-  margin: 10px;
+.centrado {
+  width: 100%;
 }

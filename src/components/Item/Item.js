@@ -4,22 +4,22 @@ import ItemCount from '../ItemCount/ItemCount';
 
 
 
-const ItemDetail = ({ data }) => (
+const Item = ({ data }) => (
     <Card>
         <Image src={data.img} wrapped ui={false} />
         <Card.Content>
             <Card.Header>{data.name}</Card.Header>
             <Card.Meta>
-                <span className='date'>{data.birthday}</span>
+                <span className='date'>Categoria: {data.birthday}</span>
             </Card.Meta>
             <Card.Description>
-                ALIAS: {data.nickname}
+                $ {data.nickname}
             </Card.Description>
         </Card.Content>
         <Card.Content extra>
-            <ItemCount stock={5} initial={1} />
+            <ItemCount stock={5} initial={0} />
         </Card.Content>
     </Card>
 );
 
-export default ItemDetail
+export default Item
