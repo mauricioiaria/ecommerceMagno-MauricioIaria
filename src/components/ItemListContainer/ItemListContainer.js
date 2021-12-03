@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../ItemListContainer/ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
+import axios from 'axios';
 
 
 const ItemListContainer = () => {
@@ -9,12 +10,22 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch('https://www.breakingbadapi.com/api/characters')
-                .then((response) => response.json())
-                .then((json) => setProducts(json));
-        }, 3000);
+            axios('https://www.breakingbadapi.com/api/characters').then((res) => {
+                setProducts(res.data)
+            })
+
+        }, 1500);
 
     }, []);
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         fetch('https://www.breakingbadapi.com/api/characters')
+    //             .then((response) => response.json())
+    //             .then((json) => setProducts(json));
+    //     }, 3000);
+
+    // }, []);
 
     return (
 

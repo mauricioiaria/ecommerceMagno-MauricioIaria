@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // import { Loader } from 'semantic-ui-react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { Link } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
@@ -10,7 +11,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch('https://www.breakingbadapi.com/api/characters/1')
+            fetch('https://www.breakingbadapi.com/api/characters')
                 .then((response) => response.json())
                 .then((json) => setItems(json));
         }, 1000);
@@ -22,7 +23,13 @@ const ItemDetailContainer = () => {
             <div className='itemContainer'>
                 <div className='itemStyle'>
                     {items.map((datos) => {
-                        return <ItemDetail item={datos} />
+                        return (
+                            <div>
+                                <Link to={`/detail/${datos.char_id}`}>
+                                    <ItemDetail item={datos} key={datos.char_id} />
+                                </Link>
+                            </div>
+                        );
                     })}
                 </div>
             </div>
