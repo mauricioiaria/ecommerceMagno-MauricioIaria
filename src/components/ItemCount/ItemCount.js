@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import { Button } from 'semantic-ui-react'
 
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
 
     const [count, setCount] = useState(initial);
@@ -25,9 +25,9 @@ const ItemCount = ({ stock, initial }) => {
         }
     };
 
-    const onAdd = () => {
-        swal(`AGREGASTE ${count}`)
-    };
+    // const onAdd = () => {
+    //     swal(`AGREGASTE ${count}`)
+    // };
 
 
     return (

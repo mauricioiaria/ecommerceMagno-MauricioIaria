@@ -6,9 +6,12 @@ import axios from 'axios';
 const ItemDetailContainer = () => {
 
     const [items, setItems] = useState([]);
+
+
     let id = useParams();
     let itemId = id.id
     useEffect(() => {
+
         setTimeout(() => {
             axios(`https://www.breakingbadapi.com/api/characters/${itemId}`).then((res) => setItems(res.data[0]))
         }, 1000);
@@ -18,6 +21,7 @@ const ItemDetailContainer = () => {
             <div className='itemContainer'>
                 <ItemDetail item={items} />
             </div>
+
         </>
     );
 }

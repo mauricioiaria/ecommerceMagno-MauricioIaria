@@ -1,10 +1,13 @@
 .fondo {
   background-color: white;
   margin-top: 50px;
+  border-style: solid;
 }
 
 .centrado {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 20px;
 }

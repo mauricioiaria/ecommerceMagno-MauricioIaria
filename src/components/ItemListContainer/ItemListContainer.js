@@ -18,15 +18,6 @@ const ItemListContainer = () => {
 
     }, []);
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         fetch('https://www.breakingbadapi.com/api/characters')
-    //             .then((response) => response.json())
-    //             .then((json) => setProducts(json));
-    //     }, 3000);
-
-    // }, []);
-
     return (
 
         <div className='container'>
