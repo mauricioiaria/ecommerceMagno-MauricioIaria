@@ -1,0 +1,10 @@
+.fondo {
+  background-color: white;
+  margin-top: 50px;
+}
+
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

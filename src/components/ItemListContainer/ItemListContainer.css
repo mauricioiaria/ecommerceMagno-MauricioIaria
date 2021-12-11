@@ -3,14 +3,10 @@
 }
 
 .itemContainer {
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  margin-left: 50px;
+  background-color: grey;
 }
 
 .itemStyle {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 20px;
+  grid-template-columns: 25% 25% 25% 25%;
 }

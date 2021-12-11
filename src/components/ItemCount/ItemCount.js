@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../ItemCount/ItemCount.css";
 import swal from 'sweetalert';
-import { Button, Icon } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 
 const ItemCount = ({ stock, initial }) => {

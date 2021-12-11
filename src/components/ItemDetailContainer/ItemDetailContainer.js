@@ -1,42 +1,25 @@
 import React, { useEffect, useState } from 'react'
-// import { Loader } from 'semantic-ui-react';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ItemDetailContainer = () => {
 
     const [items, setItems] = useState([]);
-
-
-
+    let id = useParams();
+    let itemId = id.id
     useEffect(() => {
         setTimeout(() => {
-            fetch('https://www.breakingbadapi.com/api/characters')
-                .then((response) => response.json())
-                .then((json) => setItems(json));
+            axios(`https://www.breakingbadapi.com/api/characters/${itemId}`).then((res) => setItems(res.data[0]))
         }, 1000);
-
-    }, []);
-
+    }, [itemId]);
     return (
         <>
             <div className='itemContainer'>
-                <div className='itemStyle'>
-                    {items.map((datos) => {
-                        return (
-                            <div>
-                                <Link to={`/detail/${datos.char_id}`}>
-                                    <ItemDetail item={datos} key={datos.char_id} />
-                                </Link>
-                            </div>
-                        );
-                    })}
-                </div>
+                <ItemDetail item={items} />
             </div>
         </>
-
-
-    )
+    );
 }
 
 export default ItemDetailContainer
