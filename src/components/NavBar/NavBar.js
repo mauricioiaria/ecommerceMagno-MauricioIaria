@@ -48,7 +48,9 @@ const NavBar = () => {
                         </Nav>
                     </NavbarCollapse>
                 </Container>
-                <CartWidget />
+                <Link to='/Cart'>
+                    <CartWidget />
+                </Link>
             </Container>
         </Navbar>
 

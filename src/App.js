@@ -5,36 +5,36 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '../src/App.css'
 
 //views
-
 import Home from './views/Home/Home'
 import Contacto from './views/Contacto/Contacto'
-// import ItemDescription from './views/ItemDescription/ItemDescription'
+import Cart from './views/Cart/Cart';
 
 //Components
 import React from 'react'
 import NavBar from "./components/NavBar/NavBar";
-// import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { CartProvider } from './components/Context/UseContext';
+
 
 
 
 const App = () => {
   return (
-    <div>
-      <Router>
-        <div>
+    <>
+      <CartProvider>
+        <Router>
           <NavBar />
-        </div>
-        <div className="App">
-          <Routes>
-            / * Dentro de views/Home inclui el componente ItemListContainer */
-            <Route path='/' element={<Home />} />
-            <Route path='/Contacto' element={<Contacto />} />
-            <Route path='/detail/:id' element={<ItemDetailContainer />} />
-          </Routes>
-        </div>
-      </Router>
-    </div>
+          <div className="App">
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/Contacto' element={<Contacto />} />
+              <Route path='/detail/:id' element={<ItemDetailContainer />} />
+              <Route path='/Cart' element={<Cart />} />
+            </Routes>
+          </div>
+        </Router>
+      </CartProvider>
+    </>
   )
 }
 

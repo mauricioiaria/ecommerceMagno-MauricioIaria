@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
-import ItemCount from '../ItemCount/ItemCount';
+// import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 

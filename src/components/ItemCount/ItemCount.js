@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import { Button } from 'semantic-ui-react'
 
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ item, stock, initial, onAdd, addItem }) => {
 
 
     const [count, setCount] = useState(initial);
@@ -25,10 +25,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         }
     };
 
-    // const onAdd = () => {
-    //     swal(`AGREGASTE ${count}`)
-    // };
-
 
     return (
         <div className='CounterSection'>
@@ -40,11 +36,12 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <div className='separacion'>
                 {
                     count > 0 ?
-                        <Button className='centrado' active onClick={() => onAdd(count)}>Agregar al Carrito</Button>
+                        // eslint-disable-next-line no-unused-expressions
+                        <Button className='centrado' active onClick={() => { onAdd(count), addItem(item, count) }}>Agregar al Carrito</Button>
                         :
                         <Button className='centrado' attached >Ingrese Cantidad</Button>
                 }
-                {/* <Button className='centrado' active onClick={onAdd}>Agregar al Carrito</Button> */}
+
             </div>
         </div>
     );
