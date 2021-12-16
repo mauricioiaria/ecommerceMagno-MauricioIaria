@@ -27,13 +27,16 @@ const ItemDetail = ({ item }) => {
                     </Grid.Column>
                     <Grid.Column>
                         <Segment textAlign="center">
-                            <span className="date">PRODUCTO: {item.name}</span>
+                            <span className="date">PRODUCTO: {item.title}</span>
                         </Segment>
                         <Segment textAlign="center">
-                            <span className="date">Categoria: {item.birthday}</span>
+                            <span className="date">Categoria: {item.category}</span>
                         </Segment>
                         <Segment textAlign="center">
-                            <span className="date">PRECIO $: {item.nickname}</span>
+                            <span className="date">Detalles del Producto: {item.description}</span>
+                        </Segment>
+                        <Segment textAlign="center">
+                            <span className="date">PRECIO $: {item.price}</span>
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>

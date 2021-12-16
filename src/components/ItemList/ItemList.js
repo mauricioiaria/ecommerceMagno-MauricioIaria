@@ -11,7 +11,7 @@ const ItemList = ({ dataProducts }) => {
         <div className='itemContainer'>
             <div className='itemStyle'>
                 {dataProducts.map((datos) => {
-                    return <Item data={datos} key={datos.char_id} />;
+                    return <Item data={datos} key={datos.id} />;
                 })}
             </div>
         </div>

@@ -34,16 +34,11 @@ const NavBar = () => {
                                 <Link to="/">
                                     <Nav.Link className="btn btn-primary navBarStyle" href="maquinasElectricas">Maquinas Electricas</Nav.Link>
                                 </Link>
-
                             </Link>
                             <Link to='Categorias/herramientas'>
                                 <Link to="/">
                                     <Nav.Link className="btn btn-primary navBarStyle" href="herramientas">Herramientas</Nav.Link>
                                 </Link>
-
-                            </Link>
-                            <Link to='/Contacto'>
-                                <Nav.Link className="btn btn-primary navBarStyle" href="contacto">Contacto</Nav.Link>
                             </Link>
                         </Nav>
                     </NavbarCollapse>

@@ -5,16 +5,17 @@ import { Link } from 'react-router-dom';
 
 
 const Item = ({ data }) => (
-    <Link to={`/detail/${data.char_id}`}>
+    <Link to={`/detail/${data.id}`}>
         <Card>
             <Image src={data.img} wrapped ui={false} />
             <Card.Content>
-                <Card.Header>{data.name}</Card.Header>
+                <Card.Header>{data.title}</Card.Header>
                 <Card.Meta>
-                    <span className='date'>Categoria: {data.birthday}</span>
+                    <span className='date'>Categoria: {data.category}</span>
                 </Card.Meta>
                 <Card.Description>
-                    $ {data.nickname}
+                    <p>{data.description}</p>
+                    $ {data.price}
                 </Card.Description>
             </Card.Content>
         </Card>
