@@ -1,0 +1,10 @@
+.contenedorForm {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(90deg, #080008 0%, #d7d5d7 50%, #040004 100%);
+  background-size: cover;
+  background-position: center;
+  background-size: auto;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+}

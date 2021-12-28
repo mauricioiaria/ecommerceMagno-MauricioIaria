@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 //Firebase
 
 import { db } from '../../firebase/firebaseConfig';
-import { collection, query, getDocs } from "firebase/firestore";
+import { collection, query, getDocs, where, documentId } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 
@@ -13,11 +13,9 @@ const ItemDetailContainer = () => {
 
     let idProduct = useParams();
 
-    const productIdFilter = items.filter((producto) => { return producto.id === idProduct.id })
-
     useEffect(() => {
         const getProducts = async () => {
-            const q = query(collection(db, "tools"));
+            const q = query(collection(db, "tools"), where(documentId(), '==', idProduct.id));
             const docs = [];
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
@@ -26,12 +24,12 @@ const ItemDetailContainer = () => {
             setItems(docs);
         };
         getProducts();
-    }, [])
+    }, [idProduct])
 
     return (
         <>
             <div className='itemContainer'>
-                {productIdFilter.map((items) => {
+                {items.map((items) => {
                     return <ItemDetail item={items} key={items.id} />
                 })}
             </div>

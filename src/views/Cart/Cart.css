@@ -20,3 +20,10 @@
 .remove {
   display: none;
 }
+
+.fondoTotal {
+  background-color: #1a97f3;
+  border-radius: 1rem;
+  text-align: center;
+  color: white;
+}

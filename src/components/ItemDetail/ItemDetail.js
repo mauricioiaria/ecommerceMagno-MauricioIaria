@@ -11,7 +11,12 @@ const ItemDetail = ({ item }) => {
     const [add, setAdd] = useState(false);
     const onAdd = (count) => {
         setAdd(!add);
-        swal(`AGREGASTE ${count} PRODUCTOS A TU CARRITO`);
+        swal({
+            title: `${item.title} Agregado!`,
+            text: `Agregaste ${count} Productos a tu Carrito`,
+            icon: "success",
+            button: "Continuar Comprando",
+        });
     };
 
     const { addItem } = useContext(CartContext);
@@ -47,7 +52,7 @@ const ItemDetail = ({ item }) => {
                     <div className="centrado">
                         <ItemCount
                             item={item}
-                            stock={5}
+                            stock={item.stock}
                             initial={0}
                             onAdd={onAdd}
                             addItem={addItem}

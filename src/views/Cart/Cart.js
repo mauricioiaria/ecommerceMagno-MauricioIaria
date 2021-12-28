@@ -3,13 +3,13 @@ import "../Cart/Cart.css";
 import { CartContext } from '../../components/Context/UseContext'
 
 const Cart = () => {
-    const { items, removeItem, clearItems } = useContext(CartContext);
+    const { items, removeItem, clearItems, totalPrice } = useContext(CartContext);
 
     return (
         <>
             <div className='container'>
                 {items.map((item) => (
-                    <div key={item.char_id}>
+                    <div key={item.id}>
                         <br></br>
                         <table class="table table-dark table-striped">
                             <thead>
@@ -23,38 +23,31 @@ const Cart = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">{item.char_id}</th>
-                                    <td className='table__productos'>{item.name}</td>
-                                    <td className='table__category'> {item.nickname}</td>
+                                    <th scope="row">{item.id}</th>
+                                    <td className='table__productos'>{item.title}</td>
+                                    <td className='table__category'> {item.category}</td>
                                     <td className='table__cantidad'>{item.count}</td>
-                                    <td className='table__price'>$ {item.nickname}</td>
+                                    <td className='table__price'>$ {item.price}</td>
 
                                 </tr>
                             </tbody>
                         </table>
-                        <button onClick={() => removeItem(item.char_id)} type="button" class="btn btn-warning">ELIMINAR PRODUCTO</button>
+                        <button onClick={() => removeItem(item.title)} type="button" class="btn btn-warning">ELIMINAR PRODUCTO</button>
                     </div>))}
             </div>
-            <div className='container'>
-                <button onClick={(item) => clearItems(item.char_id)} type="button" class="btn-lg btn-danger mt-5">VACIAR CARRITO</button>
+
+            <div className=' container d-flex justify-content-evenly'>
+                <h3 className="fondoTotal mt-5">TOTAL : $ {totalPrice}</h3>
+
+                <button onClick={(item) => clearItems(item.cod)} type="button" class="btn-lg btn-danger mt-5">VACIAR CARRITO</button>
+
+                <button type="button" class="btn-lg btn-success mt-5">TERMINAR COMPRA</button>
+
             </div>
+
         </>
     )
 }
-
-
-/* <Card>
-    <Image src={item.img} wrapped ui={false} />
-    <Card.Content>
-        <Card.Header>{item.name}</Card.Header>
-        <Card.Meta>
-            <span className='date'>Categoria: {item.birthday}</span>
-        </Card.Meta>
-        <Card.Description>
-            $ {item.nickname}
-        </Card.Description>
-    </Card.Content>
-</Card> */
 
 export default Cart
 

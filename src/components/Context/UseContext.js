@@ -7,37 +7,41 @@ export const CartProvider = ({ children }) => {
     const [items, setItems] = useState([])
 
 
-    const isInCart = (char_id) => {
+    const isInCart = (title) => {
 
-        const itemsDuplicado = items.find(item => item.char_id === char_id);
+        const itemsDuplicado = items.find(item => item.title === title);
         return itemsDuplicado;
 
     }
 
     const addItem = (item, count) => {
 
-        isInCart(item.char_id)
+        isInCart(item.title)
             ?
             setItems(items.map((prod) => {
-                if (prod.char_id === item.char_id) {
+                if (prod.title === item.title) {
                     prod.count += count;
                 }
                 return prod
             }))
             :
-            setItems([...items, { id: item.char_id, name: item.name, price: item.nickname, count: count }])
+            setItems([...items, { id: item.cod, title: item.title, category: item.category, price: item.price, count: count }])
     }
 
-    const removeItem = (char_id) => {
-        setItems(items.filter(item => item.char_id !== char_id))
+    const removeItem = (title) => {
+        setItems(items.filter(item => item.title !== title))
     }
 
     const clearItems = () => {
         setItems([])
     }
 
+    const totalPrice = items.reduce((prev, item) => {
+        return prev = prev + (item.count * item.price)
+    }, 0)
+
     return (
-        <CartContext.Provider value={{ items, addItem, removeItem, clearItems }}>
+        <CartContext.Provider value={{ items, addItem, removeItem, clearItems, totalPrice }}>
             {children}
         </CartContext.Provider>
 
