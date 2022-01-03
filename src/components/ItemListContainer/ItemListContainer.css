@@ -3,10 +3,14 @@
 }
 
 .itemContainer {
-  background-color: grey;
+  background: linear-gradient(90deg, #080008 0%, #d7d5d7 50%, #040004 100%);
 }
 
 .itemStyle {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  gap: 2em;
 }

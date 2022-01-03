@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import "../Cart/Cart.css";
 import { CartContext } from '../../components/Context/UseContext'
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const { items, removeItem, clearItems, totalPrice } = useContext(CartContext);
@@ -41,7 +42,9 @@ const Cart = () => {
 
                 <button onClick={(item) => clearItems(item.cod)} type="button" class="btn-lg btn-danger mt-5">VACIAR CARRITO</button>
 
-                <button type="button" class="btn-lg btn-success mt-5">TERMINAR COMPRA</button>
+                <Link to='/CheckOut'>
+                    <button type="button" class="btn-lg btn-success mt-5">TERMINAR COMPRA</button>
+                </Link>
 
             </div>
 

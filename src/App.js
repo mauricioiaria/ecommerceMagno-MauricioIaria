@@ -15,6 +15,7 @@ import React from 'react'
 import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartProvider } from './components/Context/UseContext';
+import Error from './views/Error/Error';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
               <Route path='/category/:category' element={<Category />} />
               <Route path='/Cart' element={<Cart />} />
               <Route path='/CheckOut' element={<CheckOut />} />
+              <Route path='*' element={<Error />} />
 
             </Routes>
           </div>

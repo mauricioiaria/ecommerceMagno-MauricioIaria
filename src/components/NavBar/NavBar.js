@@ -40,11 +40,6 @@ const NavBar = () => {
                                     <Nav.Link className="btn btn-primary navBarStyle" href="herramientas">Herramientas</Nav.Link>
                                 </Link>
                             </Link>
-                            <Link to='/CheckOut'>
-                                <Link to="CheckOut">
-                                    <Nav.Link className="btn btn-primary navBarStyle" href="herramientas">Formulario</Nav.Link>
-                                </Link>
-                            </Link>
                         </Nav>
                     </NavbarCollapse>
                 </Container>

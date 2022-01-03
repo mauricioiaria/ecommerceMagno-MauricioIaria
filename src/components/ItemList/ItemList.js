@@ -8,12 +8,10 @@ const ItemList = ({ dataProducts }) => {
 
     return (
 
-        <div className='itemContainer'>
-            <div className='itemStyle'>
-                {dataProducts.map((datos) => {
-                    return <Item data={datos} key={datos.id} />;
-                })}
-            </div>
+        <div className='itemStyle'>
+            {dataProducts.map((datos) => {
+                return <Item data={datos} key={datos.id} />;
+            })}
         </div>
     );
 
