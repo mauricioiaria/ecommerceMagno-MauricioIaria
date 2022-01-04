@@ -1,7 +1,6 @@
 .fondo {
-  background-color: white;
+  background-color: none;
   margin-top: 50px;
-  border-style: solid;
 }
 
 .centrado {
@@ -10,4 +9,13 @@
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 20px;
+}
+
+span {
+  font-family: fantasy;
+  font-size: 25px;
+}
+
+.price {
+  color: black;
 }

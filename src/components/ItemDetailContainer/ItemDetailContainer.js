@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 
+import Spinner from '../Spinner/Spinner';
+import '../Spinner/Spinner.css'
+
 //Firebase
 
 import { db } from '../../firebase/firebaseConfig';
@@ -10,6 +13,8 @@ import { collection, query, getDocs, where, documentId } from "firebase/firestor
 const ItemDetailContainer = () => {
 
     const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     let idProduct = useParams();
 
@@ -24,15 +29,23 @@ const ItemDetailContainer = () => {
             setItems(docs);
         };
         getProducts();
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
     }, [idProduct])
 
     return (
         <>
-            <div className='itemContainer'>
-                {items.map((items) => {
-                    return <ItemDetail item={items} key={items.id} />
-                })}
-            </div>
+            {isLoading ? (
+                <div className='spinner'>
+                    <Spinner />
+                </div>
+            ) : (
+                <div className='itemContainer'>
+                    {items.map((items) => {
+                        return <ItemDetail item={items} key={items.id} />
+                    })}
+                </div>)}
         </>
     );
 }

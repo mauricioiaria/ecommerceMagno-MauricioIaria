@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import '../ItemListContainer/ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
+import Spinner from '../Spinner/Spinner'
+import '../Spinner/Spinner.css'
 
 
 //Firebase
@@ -13,6 +15,8 @@ import { collection, query, getDocs } from "firebase/firestore";
 const ItemListContainer = () => {
 
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
         const getProducts = async () => {
@@ -25,13 +29,23 @@ const ItemListContainer = () => {
             setProducts(docs);
         };
         getProducts();
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
     }, [])
 
     return (
+        <>
+            {isLoading ? (
+                <div className='spinner'>
+                    <Spinner />
+                </div>
+            ) : (<div className='container'>
+                <ItemList dataProducts={products} />
+            </div>)
+            }
 
-        <div className='container'>
-            <ItemList dataProducts={products} />
-        </div>
+        </>
     );
 
 };

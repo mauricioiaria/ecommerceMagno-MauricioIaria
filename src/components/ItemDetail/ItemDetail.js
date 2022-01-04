@@ -26,22 +26,22 @@ const ItemDetail = ({ item }) => {
             <Grid columns={2}>
                 <Grid.Row stretched>
                     <Grid.Column>
-                        <Segment>
+                        <Segment >
                             <Image src={item.img} />
                         </Segment>
                     </Grid.Column>
                     <Grid.Column>
-                        <Segment textAlign="center">
-                            <span className="date">PRODUCTO: {item.title}</span>
+                        <Segment inverted color='blue' textAlign="center">
+                            <span >Producto: {item.title}</span>
                         </Segment>
                         <Segment textAlign="center">
-                            <span className="date">Categoria: {item.category}</span>
+                            <span >Categoria: {item.category}</span>
                         </Segment>
                         <Segment textAlign="center">
-                            <span className="date">Detalles del Producto: {item.description}</span>
+                            <span >Detalles del Producto: {item.description}</span>
                         </Segment>
-                        <Segment textAlign="center">
-                            <span className="date">PRECIO $: {item.price}</span>
+                        <Segment inverted color='green' tertiary textAlign="center">
+                            <span className="price" >PRECIO ARS $: {item.price}</span>
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>

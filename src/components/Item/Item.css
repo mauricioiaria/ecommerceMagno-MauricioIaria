@@ -1,3 +1,13 @@
 .linkstyle {
   text-decoration: none;
 }
+
+.description {
+  height: 12px;
+  overflow: hidden;
+  transition: height 0.3s ease-in 0.3s;
+  font-size: medium;
+}
+.description:hover {
+  height: 80px;
+}
