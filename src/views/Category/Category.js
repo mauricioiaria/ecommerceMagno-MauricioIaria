@@ -1,42 +1,38 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-//CSS
-import '../../components/ItemListContainer/ItemListContainer.css'
+// CSS
+import '../../components/ItemListContainer/ItemListContainer.css';
 
-//COMPONENST
+// COMPONENST
+import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList';
 import Spinner from '../../components/Spinner/Spinner';
 
+// ROUTER
 
-//ROUTER
-import { useParams } from 'react-router-dom';
+// CSS
+import '../../components/Spinner/Spinner.css';
 
-
-//CSS
-import '../../components/Spinner/Spinner.css'
-
-//Firebase
+// Firebase
 
 import { db } from '../../firebase/firebaseConfig';
-import { collection, query, getDocs, where } from "firebase/firestore";
+import {
+ collection, query, getDocs, where,
+} from 'firebase/firestore';
 
-
-
-const Category = () => {
-
+function Category() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-    let category = useParams();
+    const category = useParams();
 
     useEffect(() => {
         const getProducts = async () => {
-            const q = query(collection(db, "tools"), where('category', '==', category.category));
+            const q = query(collection(db, 'tools'), where('category', '==', category.category));
             const docs = [];
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id })
+                docs.push({ ...doc.data(), id: doc.id });
             });
             setProducts(docs);
         };
@@ -44,21 +40,21 @@ const Category = () => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);
-    }, [category.category])
+    }, [category.category]);
 
     return (
-        <>
-            {isLoading ? (
-                <div className='spinner'>
-                    <Spinner />
-                </div>
+      <>
+        {isLoading ? (
+          <div className="spinner">
+            <Spinner />
+          </div>
             ) : (
-                <div className='container'>
-                    <ItemList dataProducts={products} />
-                </div>)}
-        </>
+              <div className="container">
+                <ItemList dataProducts={products} />
+              </div>
+)}
+      </>
     );
-
-};
+}
 
 export default Category;

@@ -1,73 +1,88 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 
-//Css
-import "../Cart/Cart.css";
+// Css
+import './Cart.css';
 
-//UseContext
-import { CartContext } from '../../components/Context/UseContext'
+// UseContext
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../components/Context/UseContext';
 
-//Router
-import { Link } from "react-router-dom";
+// Router
 
-//Components
+// Components
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
 
-
-const Cart = () => {
-    const { items, removeItem, clearItems, totalPrice } = useContext(CartContext);
+function Cart() {
+    const {
+ items, removeItem, clearItems, totalPrice,
+} = useContext(CartContext);
 
     return (
-        <>
-            {items <= 0 ?
+      <>
+        {items <= 0
 
-                //Validacion para que no deje ingresar al carrito si esta vacio, no logre ponerle un alert para que notifice al usurio y luego lo rediriga automaticamente al home// 
+                // Validacion para que no deje ingresar al carrito si esta vacio, no logre ponerle un alert para que notifice al usurio y luego lo rediriga automaticamente al home//
 
-                <Link to="/">
+                ? (
+                  <Link to="/">
                     <ItemListContainer />
-                </Link>
+                  </Link>
+)
 
-                :
-                <><div className='container'>
-                    {items.map((item) => (
+                : (
+                  <>
+                    <div className="container">
+                      {items.map((item) => (
                         <div key={item.id}>
-                            <br></br>
-                            <table class="table table-dark table-striped">
-                                <thead>
-                                    <tr className='text-primary'>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Producto</th>
-                                        <th scope="col">Categoria</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Precio</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">{item.id}</th>
-                                        <td className='table__productos'>{item.title}</td>
-                                        <td className='table__category'> {item.category}</td>
-                                        <td className='table__cantidad'>{item.count}</td>
-                                        <td className='table__price'>$ {item.price}</td>
+                          <br />
+                          <table className="table table-dark table-striped">
+                            <thead>
+                              <tr className="text-primary">
+                                <th scope="col">#</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">{item.id}</th>
+                                <td className="table__productos">{item.title}</td>
+                                <td className="table__category">
+                                  {' '}
+                                  {item.category}
+                                </td>
+                                <td className="table__cantidad">{item.count}</td>
+                                <td className="table__price">
+                                  $
+                                  {item.price}
+                                </td>
 
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button onClick={() => removeItem(item.title)} type="button" class="btn btn-warning">ELIMINAR PRODUCTO</button>
-                        </div>))}
-                </div><div className=' container d-flex justify-content-evenly'>
-                        <h3 className="fondoTotal mt-5">TOTAL: $ {totalPrice}</h3>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <button onClick={() => removeItem(item.title)} type="button" className="btn btn-warning">ELIMINAR PRODUCTO</button>
+                        </div>
+))}
+                    </div>
+                    <div className=" container d-flex justify-content-evenly">
+                      <h3 className="fondoTotal mt-5">
+                        TOTAL: $
+                        {totalPrice}
+                      </h3>
 
-                        <button onClick={(item) => clearItems(item.cod)} type="button" class="btn-lg btn-danger mt-5">VACIAR CARRITO</button>
+                      <button onClick={(item) => clearItems(item.cod)} type="button" className="btn-lg btn-danger mt-5">VACIAR CARRITO</button>
 
-                        <Link to='/CheckOut'>
-                            <button type="button" class="btn-lg btn-success mt-5">TERMINAR COMPRA</button>
-                        </Link>
+                      <Link to="/CheckOut">
+                        <button type="button" className="btn-lg btn-success mt-5">TERMINAR COMPRA</button>
+                      </Link>
 
-                    </div></>
-            }
-        </>
-    )
+                    </div>
+                  </>
+)}
+      </>
+    );
 }
 
-export default Cart
-
+export default Cart;

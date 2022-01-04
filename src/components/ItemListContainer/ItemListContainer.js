@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-//CSS
-import '../ItemListContainer/ItemListContainer.css';
-import '../Spinner/Spinner.css'
+// CSS
+import './ItemListContainer.css';
+import '../Spinner/Spinner.css';
 
-//Components
+// Components
+import { collection, query, getDocs } from 'firebase/firestore';
 import ItemList from '../ItemList/ItemList';
-import Spinner from '../Spinner/Spinner'
+import Spinner from '../Spinner/Spinner';
 
-
-//Firebase
+// Firebase
 
 import { db } from '../../firebase/firebaseConfig';
-import { collection, query, getDocs } from "firebase/firestore";
 
-
-
-const ItemListContainer = () => {
-
+function ItemListContainer() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
     useEffect(() => {
         const getProducts = async () => {
-            const q = query(collection(db, "tools"));
+            const q = query(collection(db, 'tools'));
             const docs = [];
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id })
+                docs.push({ ...doc.data(), id: doc.id });
             });
             setProducts(docs);
         };
@@ -36,22 +31,22 @@ const ItemListContainer = () => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
-    }, [])
+    }, []);
 
     return (
-        <>
-            {isLoading ? (
-                <div className='spinner'>
-                    <Spinner />
-                </div>
-            ) : (<div className='container'>
+      <>
+        {isLoading ? (
+          <div className="spinner">
+            <Spinner />
+          </div>
+            ) : (
+              <div className="container">
                 <ItemList dataProducts={products} />
-            </div>)
-            }
+              </div>
+)}
 
-        </>
+      </>
     );
-
-};
+}
 
 export default ItemListContainer;

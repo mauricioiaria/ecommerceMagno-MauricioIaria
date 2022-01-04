@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-//COMPONENTS
-import PurchaseForm from '../../components/PurchaseForm/PurchaseForm'
+// COMPONENTS
+import PurchaseForm from '../../components/PurchaseForm/PurchaseForm';
 
-const CheckOut = () => {
+function CheckOut() {
     return (
-        <div>
-            <PurchaseForm />
-        </div>
-    )
+      <div>
+        <PurchaseForm />
+      </div>
+    );
 }
 
-export default CheckOut
+export default CheckOut;

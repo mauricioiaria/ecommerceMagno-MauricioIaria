@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-//Components
+// Components
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
-//Router
-import { useParams } from 'react-router-dom';
+// Router
 
-//Components
+// Components
 import Spinner from '../Spinner/Spinner';
 
-//CSS
-import '../Spinner/Spinner.css'
+// CSS
+import '../Spinner/Spinner.css';
 
-//Firebase
+// Firebase
 
 import { db } from '../../firebase/firebaseConfig';
-import { collection, query, getDocs, where, documentId } from "firebase/firestore";
+import {
+ collection, query, getDocs, where, documentId,
+} from 'firebase/firestore';
 
-const ItemDetailContainer = () => {
-
+function ItemDetailContainer() {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-    let idProduct = useParams();
+    const idProduct = useParams();
 
     useEffect(() => {
         const getProducts = async () => {
-            const q = query(collection(db, "tools"), where(documentId(), '==', idProduct.id));
+            const q = query(collection(db, 'tools'), where(documentId(), '==', idProduct.id));
             const docs = [];
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id })
+                docs.push({ ...doc.data(), id: doc.id });
             });
             setItems(docs);
         };
@@ -39,22 +39,21 @@ const ItemDetailContainer = () => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);
-    }, [idProduct])
+    }, [idProduct]);
 
     return (
-        <>
-            {isLoading ? (
-                <div className='spinner'>
-                    <Spinner />
-                </div>
+      <>
+        {isLoading ? (
+          <div className="spinner">
+            <Spinner />
+          </div>
             ) : (
-                <div className='itemContainer'>
-                    {items.map((items) => {
-                        return <ItemDetail item={items} key={items.id} />
-                    })}
-                </div>)}
-        </>
+              <div className="itemContainer">
+                {items.map((items) => <ItemDetail item={items} key={items.id} />)}
+              </div>
+)}
+      </>
     );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

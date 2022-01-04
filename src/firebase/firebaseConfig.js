@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+
 const firebaseConfig = {
 
     // apiKey: "AIzaSyAIyc_mDy4fc7SghKGgUEoOTBf0wGIv8go",
@@ -9,7 +10,7 @@ const firebaseConfig = {
     // messagingSenderId: "660728166631",
     // appId: "1:660728166631:web:a4e0fd0a943cfed1e68a42"
 
-    //Reemplazo de datos por variables de entorno
+    // Reemplazo de datos por variables de entorno
 
     apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,

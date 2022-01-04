@@ -1,23 +1,16 @@
-//Components
+// Components
 import Item from '../Item/Item';
 
-//Css
+// Css
 import '../ItemListContainer/ItemListContainer.css';
 
-
-
-const ItemList = ({ dataProducts }) => {
-
-
+function ItemList({ dataProducts }) {
     return (
 
-        <div className='itemStyle'>
-            {dataProducts.map((datos) => {
-                return <Item data={datos} key={datos.id} />;
-            })}
-        </div>
+      <div className="itemStyle">
+        {dataProducts.map((datos) => <Item data={datos} key={datos.id} />)}
+      </div>
     );
+}
 
-};
-
-export default ItemList
+export default ItemList;
