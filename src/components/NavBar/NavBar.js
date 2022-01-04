@@ -30,15 +30,9 @@ const NavBar = () => {
                 <Container>
                     <NavbarCollapse>
                         <Nav>
-                            <Link to='/Categorias/maquinasElectricas'>
-                                <Link to="category/electrica">
-                                    <Nav.Link className="btn btn-primary navBarStyle" href="maquinasElectricas">Maquinas Electricas</Nav.Link>
-                                </Link>
+                            <Link to="category/electrica" className="btn btn-primary navBarStyle nav-link" href="maquinasElectricas">Maquinas Electricas
                             </Link>
-                            <Link to='Categorias/herramientas'>
-                                <Link to="category/herramienta">
-                                    <Nav.Link className="btn btn-primary navBarStyle" href="herramientas">Herramientas</Nav.Link>
-                                </Link>
+                            <Link to="category/herramienta" className="btn btn-primary navBarStyle nav-link" href="herramientas">Herramientas
                             </Link>
                         </Nav>
                     </NavbarCollapse>

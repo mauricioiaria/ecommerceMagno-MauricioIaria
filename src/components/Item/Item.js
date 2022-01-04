@@ -2,6 +2,8 @@ import React from 'react'
 import { Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
+
+//css
 import '../Item/Item.css'
 
 

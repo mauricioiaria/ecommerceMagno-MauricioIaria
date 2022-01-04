@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
+
+//CSS
 import '../ItemListContainer/ItemListContainer.css';
+import '../Spinner/Spinner.css'
+
+//Components
 import ItemList from '../ItemList/ItemList';
 import Spinner from '../Spinner/Spinner'
-import '../Spinner/Spinner.css'
 
 
 //Firebase

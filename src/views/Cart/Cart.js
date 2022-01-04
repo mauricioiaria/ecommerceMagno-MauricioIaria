@@ -1,9 +1,16 @@
 import React, { useContext } from 'react'
+
+//Css
 import "../Cart/Cart.css";
+
+//UseContext
 import { CartContext } from '../../components/Context/UseContext'
+
+//Router
 import { Link } from "react-router-dom";
+
+//Components
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
-import { Alert } from 'bootstrap';
 
 
 const Cart = () => {

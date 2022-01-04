@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+
+//css
 import "../ItemCount/ItemCount.css";
+
+//Librerias
 import swal from 'sweetalert';
 import { Button } from 'semantic-ui-react'
 
@@ -39,7 +43,7 @@ const ItemCount = ({ item, stock, initial, onAdd, addItem }) => {
                         // eslint-disable-next-line no-unused-expressions
                         <Button className='centrado' active onClick={() => { onAdd(count), addItem(item, count) }}>Agregar al Carrito</Button>
                         :
-                        <Button className='centrado' attached >Ingrese Cantidad</Button>
+                        <Button className='centrado' attached >Agregue su producto</Button>
                 }
 
             </div>

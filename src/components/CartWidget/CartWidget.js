@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Icon } from 'semantic-ui-react'
 
+
 import { CartContext } from '../Context/UseContext'
 
 function CartWidget() {
@@ -9,6 +10,7 @@ function CartWidget() {
 
     let itemsInCart = 0;
 
+    // eslint-disable-next-line array-callback-return
     items.map((item) => {
         itemsInCart = itemsInCart + item.count;
     })

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./PurchaseForm.css";
 
+
+//FireStore
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../firebase/firebaseConfig'
 
+
+//Components
 import Spinner from '../Spinner/Spinner'
 import IdNotification from '../IdNotification/IdNotification'
 

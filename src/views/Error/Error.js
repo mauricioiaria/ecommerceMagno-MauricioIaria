@@ -1,4 +1,6 @@
 import React from 'react'
+
+//LIBRERIAS
 import { Alert } from 'react-bootstrap'
 
 const Error = () => {

@@ -1,10 +1,20 @@
 import React, { useContext, useState } from "react";
+
+//Librerias
 import { Image, Grid, Container, Segment, Button } from "semantic-ui-react";
-import ItemCount from "../ItemCount/ItemCount";
-import "../ItemDetail/ItemDetail.css";
 import swal from "sweetalert";
+
+
+//Components
+import ItemCount from "../ItemCount/ItemCount";
+
+//Css
+import "../ItemDetail/ItemDetail.css";
+
+//Router
 import { Link } from "react-router-dom";
 
+//UseContext
 import { CartContext } from "../Context/UseContext";
 
 const ItemDetail = ({ item }) => {
@@ -35,10 +45,10 @@ const ItemDetail = ({ item }) => {
                             <span >Producto: {item.title}</span>
                         </Segment>
                         <Segment textAlign="center">
-                            <span >Categoria: {item.category}</span>
+                            <span >Detalles del Producto: {item.description}</span>
                         </Segment>
                         <Segment textAlign="center">
-                            <span >Detalles del Producto: {item.description}</span>
+                            <span >Stock Disponible: {item.stock}</span>
                         </Segment>
                         <Segment inverted color='green' tertiary textAlign="center">
                             <span className="price" >PRECIO ARS $: {item.price}</span>

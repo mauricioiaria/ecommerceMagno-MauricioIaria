@@ -3,11 +3,11 @@
 }
 
 .description {
-  height: 12px;
+  height: 20px;
   overflow: hidden;
   transition: height 0.3s ease-in 0.3s;
   font-size: medium;
 }
 .description:hover {
-  height: 80px;
+  height: 200px;
 }

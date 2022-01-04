@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react'
+
+//CSS
 import '../../components/ItemListContainer/ItemListContainer.css'
+
+//COMPONENST
 import ItemList from '../../components/ItemList/ItemList';
+import Spinner from '../../components/Spinner/Spinner';
+
+
+//ROUTER
 import { useParams } from 'react-router-dom';
 
+
+//CSS
+import '../../components/Spinner/Spinner.css'
 
 //Firebase
 
@@ -14,6 +25,8 @@ import { collection, query, getDocs, where } from "firebase/firestore";
 const Category = () => {
 
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     let category = useParams();
 
@@ -28,13 +41,22 @@ const Category = () => {
             setProducts(docs);
         };
         getProducts();
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
     }, [category.category])
 
     return (
-
-        <div className='container'>
-            <ItemList dataProducts={products} />
-        </div>
+        <>
+            {isLoading ? (
+                <div className='spinner'>
+                    <Spinner />
+                </div>
+            ) : (
+                <div className='container'>
+                    <ItemList dataProducts={products} />
+                </div>)}
+        </>
     );
 
 };

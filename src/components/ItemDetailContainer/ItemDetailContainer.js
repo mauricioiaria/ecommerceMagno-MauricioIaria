@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
+
+//Components
 import ItemDetail from '../ItemDetail/ItemDetail';
+
+//Router
 import { useParams } from 'react-router-dom';
 
+//Components
 import Spinner from '../Spinner/Spinner';
+
+//CSS
 import '../Spinner/Spinner.css'
 
 //Firebase
@@ -31,7 +38,7 @@ const ItemDetailContainer = () => {
         getProducts();
         setTimeout(() => {
             setIsLoading(false);
-        }, 1000);
+        }, 1500);
     }, [idProduct])
 
     return (

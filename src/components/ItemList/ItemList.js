@@ -1,4 +1,7 @@
+//Components
 import Item from '../Item/Item';
+
+//Css
 import '../ItemListContainer/ItemListContainer.css';
 
 
